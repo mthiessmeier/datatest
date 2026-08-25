@@ -1,5 +1,5 @@
 {
-  "deployment_generation": 1,
+  "deployment_generation": 2,
   "lookback_hours": 72,
   "fresh_item_hours": 8,
   "max_items_per_source": 100,
@@ -39,6 +39,14 @@
     {
       "name": "Limited NATO provocation",
       "query": "(Baltic OR Poland) (limited kinetic operation OR hybrid provocation OR critical infrastructure attack OR test NATO resolve)"
+    },
+    {
+      "name": "Official NATO Baltic updates",
+      "query": "site:nato.int (Baltic OR Latvia OR Lithuania OR Estonia OR Kaliningrad) (emergency OR readiness OR airspace OR drone OR Article 4)"
+    },
+    {
+      "name": "Official US Baltic security updates",
+      "query": "(site:state.gov OR site:war.gov OR site:lv.usembassy.gov OR site:ee.usembassy.gov OR site:lt.usembassy.gov) (Baltic OR Latvia OR Lithuania OR Estonia OR Moscow) (warning OR security OR airspace OR drone OR readiness)"
     }
   ],
   "rss_feeds": [
@@ -58,8 +66,28 @@
       "tier": 2
     },
     {
-      "name": "NATO News",
-      "url": "https://www.nato.int/cps/en/natohq/rssFeed.xsl/rssFeed.xml",
+      "name": "LRT Lithuania English",
+      "url": "https://www.lrt.lt/en/news-in-english?rss",
+      "tier": 2
+    },
+    {
+      "name": "Latvia MFA Articles",
+      "url": "https://www.mfa.gov.lv/en/rss/articles",
+      "tier": 1
+    },
+    {
+      "name": "Estonia MFA Releases",
+      "url": "https://vm.ee/en/rss-feeds/rss.xml",
+      "tier": 1
+    },
+    {
+      "name": "US Department of War Releases",
+      "url": "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=9&Site=945&max=50",
+      "tier": 1
+    },
+    {
+      "name": "US Department of War Advisories",
+      "url": "https://www.war.gov/DesktopModules/ArticleCS/RSS.ashx?ContentType=2&Site=945&max=50",
       "tier": 1
     }
   ],
@@ -73,6 +101,7 @@
     "nato.int",
     "shape.nato.int",
     "defense.gov",
+    "war.gov",
     "state.gov",
     "cia.gov",
     "whitehouse.gov",
@@ -81,8 +110,10 @@
     "lt.usembassy.gov",
     "mil.lv",
     "mod.gov.lv",
+    "mfa.gov.lv",
     "cert.lv",
     "kaitseministeerium.ee",
+    "vm.ee",
     "mil.ee",
     "kam.lt",
     "vsd.lt",

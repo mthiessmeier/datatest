@@ -9,6 +9,7 @@ on:
       - master
     paths:
       - "monitor.py"
+      - "monitor_v2.py"
       - "requirements.txt"
       - "config/**"
       - "ANALYTIC_FRAMEWORK.md"
@@ -45,7 +46,7 @@ jobs:
       - name: Run public-source sweep
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: python monitor.py
+        run: python monitor_v2.py
 
       - name: Commit rolling state and report
         run: |
@@ -54,7 +55,16 @@ jobs:
           git add data/state.json reports/latest.md
           if ! git diff --cached --quiet; then
             git commit -m "chore: hourly Baltic OSINT sweep"
-            git push
+            for attempt in 1 2 3; do
+              git fetch origin master
+              if git rebase origin/master && git push origin HEAD:master; then
+                exit 0
+              fi
+              git rebase --abort || true
+              sleep $((attempt * 3))
+            done
+            echo "Unable to persist report after three attempts" >&2
+            exit 1
           fi
 
       - name: Preserve latest report as workflow artifact
