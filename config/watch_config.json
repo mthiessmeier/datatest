@@ -1,4 +1,5 @@
 {
+  "deployment_generation": 1,
   "lookback_hours": 72,
   "fresh_item_hours": 8,
   "max_items_per_source": 100,
