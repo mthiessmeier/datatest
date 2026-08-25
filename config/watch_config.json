@@ -1,0 +1,115 @@
+{
+  "lookback_hours": 72,
+  "fresh_item_hours": 8,
+  "max_items_per_source": 100,
+  "queries": [
+    {
+      "name": "Baltic UAS or missile incident",
+      "query": "(Latvia OR Lithuania OR Estonia OR Baltics) (drone OR UAV OR Shahed OR Geran OR missile) (attack OR strike OR airspace OR infrastructure)"
+    },
+    {
+      "name": "Russian western force preparation",
+      "query": "(Kaliningrad OR Pskov OR Belarus OR Leningrad) (deployment OR mobilization OR missile OR launcher OR convoy OR readiness OR NOTAM OR airspace)"
+    },
+    {
+      "name": "Baltic critical infrastructure attack",
+      "query": "(Latvia OR Lithuania OR Estonia OR Baltic) (critical infrastructure OR factory OR power OR rail OR port OR airport OR telecom) (sabotage OR attack OR fire OR explosion OR cyberattack)"
+    },
+    {
+      "name": "NATO emergency posture",
+      "query": "NATO (Baltic OR Kaliningrad OR Latvia OR Lithuania OR Estonia) (Article 4 OR emergency OR readiness OR air defence OR air defense OR AWACS OR combat air patrol)"
+    },
+    {
+      "name": "Baltic diplomatic warning",
+      "query": "(Riga OR Vilnius OR Tallinn OR Latvia OR Lithuania OR Estonia) (security alert OR embassy OR evacuation OR shelter OR ordered departure OR credible threat)"
+    },
+    {
+      "name": "Ratcliffe Moscow outcome",
+      "query": "Ratcliffe Moscow (warning OR talks OR meeting OR rejected OR departed OR Kremlin OR no agreement OR consequences)"
+    },
+    {
+      "name": "Russian Baltic retaliation narrative",
+      "query": "Russia Baltic (retaliation OR legitimate target OR Ukrainian drone OR Ukraine airspace OR provocation OR false flag)"
+    },
+    {
+      "name": "Baltic GNSS and electronic warfare",
+      "query": "(Baltic OR Latvia OR Lithuania OR Estonia OR Poland) (GNSS OR GPS jamming OR spoofing OR electronic warfare)"
+    },
+    {
+      "name": "Limited NATO provocation",
+      "query": "(Baltic OR Poland) (limited kinetic operation OR hybrid provocation OR critical infrastructure attack OR test NATO resolve)"
+    }
+  ],
+  "rss_feeds": [
+    {
+      "name": "LSM Latvia Defence",
+      "url": "https://eng.lsm.lv/rss/?lang=en&catid=20472",
+      "tier": 2
+    },
+    {
+      "name": "LSM Latvia Politics",
+      "url": "https://eng.lsm.lv/rss/?lang=en&catid=315",
+      "tier": 2
+    },
+    {
+      "name": "ERR Estonia News",
+      "url": "https://news.err.ee/k/news/rss.xml",
+      "tier": 2
+    },
+    {
+      "name": "NATO News",
+      "url": "https://www.nato.int/cps/en/natohq/rssFeed.xsl/rssFeed.xml",
+      "tier": 1
+    }
+  ],
+  "bluesky_queries": [
+    "Baltic drone Kaliningrad",
+    "Latvia Lithuania Estonia airspace drone",
+    "Ratcliffe Moscow Kremlin",
+    "Baltic critical infrastructure Russia"
+  ],
+  "official_domains": [
+    "nato.int",
+    "shape.nato.int",
+    "defense.gov",
+    "state.gov",
+    "cia.gov",
+    "whitehouse.gov",
+    "lv.usembassy.gov",
+    "ee.usembassy.gov",
+    "lt.usembassy.gov",
+    "mil.lv",
+    "mod.gov.lv",
+    "cert.lv",
+    "kaitseministeerium.ee",
+    "mil.ee",
+    "kam.lt",
+    "vsd.lt",
+    "gov.pl",
+    "wojsko-polskie.pl",
+    "gov.uk"
+  ],
+  "high_reliability_domains": [
+    "reuters.com",
+    "apnews.com",
+    "axios.com",
+    "cbsnews.com",
+    "wsj.com",
+    "ft.com",
+    "bbc.com",
+    "bloomberg.com",
+    "eng.lsm.lv",
+    "news.err.ee",
+    "lrt.lt",
+    "starsandstripes.com",
+    "twz.com"
+  ],
+  "meeting_subject_terms": [
+    "ratcliffe",
+    "cia director",
+    "cia chief",
+    "u.s. delegation",
+    "us delegation",
+    "american delegation"
+  ]
+}
