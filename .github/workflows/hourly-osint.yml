@@ -1,0 +1,68 @@
+name: Hourly Baltic OSINT Sweep
+
+on:
+  schedule:
+    - cron: "17 * * * *"
+  workflow_dispatch:
+  push:
+    branches:
+      - master
+    paths:
+      - "monitor.py"
+      - "requirements.txt"
+      - "config/**"
+      - "ANALYTIC_FRAMEWORK.md"
+      - ".github/workflows/hourly-osint.yml"
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: baltic-osint-hourly
+  cancel-in-progress: false
+
+jobs:
+  sweep:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: python -m pip install -r requirements.txt
+
+      - name: Run public-source sweep
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: python monitor.py
+
+      - name: Commit rolling state and report
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/state.json reports/latest.md
+          if ! git diff --cached --quiet; then
+            git commit -m "chore: hourly Baltic OSINT sweep"
+            git push
+          fi
+
+      - name: Preserve latest report as workflow artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: baltic-osint-latest
+          path: |
+            reports/latest.md
+            data/state.json
+          retention-days: 30
